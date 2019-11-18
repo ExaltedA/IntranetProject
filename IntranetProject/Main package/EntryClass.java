@@ -10,7 +10,7 @@ public class EntryClass {
 		AdvCalculus.addPrereq(Calculus1);
 		AdvCalculus.addPrereq(Calculus3);
 		AdvCalculus.addPrereq(Calculus2);
-		
+		System.out.println(Calculus1.equals(Calculus3));
 		AdvCalculus.showPrereq();
 	}
 

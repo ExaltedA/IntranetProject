@@ -62,8 +62,9 @@ public class Course {
 	        return result;
 	};
 
-	public boolean equals(Course obj) {
-        return (this.name.equals(obj.name) && this.id.equals(obj.id) );
+	public boolean equals(Object obj) {
+		Course a = (Course) obj;
+        return (this.name.equals(a.name) && this.id.equals(a.id) );
         	
         }
      
