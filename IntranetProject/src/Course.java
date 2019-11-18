@@ -32,7 +32,8 @@ public class Course {
 	public void removePrereq() {
 		
 	}
-	
+
+public native int hashCode();
 	public boolean equals(Object obj) {
         return (this == obj);
 }
