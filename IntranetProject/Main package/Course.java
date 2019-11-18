@@ -1,13 +1,14 @@
 import java.util.*;
 public class Course {
-	private	Course Prereq;
 	private String name,id;
-	boolean isPrereq;
-	Vector<Course> Pre = new Vector<Course>();
+	HashSet<Course> Pre = new HashSet<Course>();
 	Course(){}
 	Course(String name, String id){
 		this.name=name;
 		this.id=id;
+	}
+	public boolean anyPrereq() { // returns True if vector has prerequisite, False otherwise
+		return !Pre.isEmpty();
 	}
 	public void addPrereq(Course a) {
 		if(Pre.size()<3)
@@ -52,7 +53,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [name=" + name + ", id=" + id + "]";
+		return "Course [" + name + ", id = " + id + "]";
 	}
 	public int hashCode() {
 		 int result = 17;
