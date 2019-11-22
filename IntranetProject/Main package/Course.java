@@ -61,7 +61,7 @@ public class Course {
 		this.credits=credits;
 	}
 	public String toString() {
-		return "Course [" + name + ", id = " + id + "]";
+		return "Course [" + name + ", id = " + id + ", weight: " +credits + " credits ]";
 	}
 	public int hashCode() {
 		 int result = 17;
