@@ -30,18 +30,27 @@ public class Admin extends User{
 	public boolean removeUser(Employee employee) {
 		for(Employee a: data.employees) {
 			if(employee.equals(a)) {
-				data.students.remove(a);
+				data.employees.remove(a);
 				return true;
 			}
 		}
 		return false;
 	}
-	public boolean updateInfo() {
-		return true;
+	public void showInfo() {
+		int aq=0,bq=0;
+		for(Student a: data.students) {
+			aq++;
+		System.out.println(a.toString());
+		}
+		for(Employee a: data.employees) {
+			bq++;
+			System.out.println(a.toString());
+			}
+		System.out.println("Total num of Students: " + aq + ", total num of Employees: " + bq + ".");
+		
+		
 	}
 
-	public void showAction() {
 
-	}
 }
 
