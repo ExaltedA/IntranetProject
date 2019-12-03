@@ -4,7 +4,6 @@ public class Course {
 	private int credits;
 	private Faculty faculty;
 	
-	
 	HashSet<Course> Pre = new HashSet<Course>();
 
 	Course(){
@@ -12,7 +11,8 @@ public class Course {
 		this.id=id;
 		this.credits=0;}
 
-	Course(String name, String id,int credits){
+	Course(Faculty a,String name, String id,int credits){
+		faculty =a;
 		this.name=name;
 		this.id=id;
 		this.credits=credits;
