@@ -1,12 +1,16 @@
 
 public class Employee extends User {
-  
+	Databases data = Databases.getInstance();
 	private int salary;
 	private String order;
 	public Employee() {}
 	public Employee(String name, String surname, String id, String login, 
 			String password, int salary) {
 		super(name, surname, id, login, password);
+	}
+	
+	public boolean sendOrder(String msg) {
+	return 	data.newOrders.add(new Order(msg));	
 	}
 	
 	public int getSalary() {

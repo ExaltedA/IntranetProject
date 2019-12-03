@@ -9,7 +9,8 @@ import java.util.*;
     public final class Databases implements Serializable{ 
     	private static final Databases ONE = new Databases();
     	private Databases() {};
-    	
+    public Vector<Order> newOrders = new Vector<Order>();
+    public Vector<Order> orders = new Vector<Order>();
     static Vector<Course> courses = new Vector<Course>();
 	static Vector<Student> students = new Vector<Student>();
 	static Vector<Employee> employees = new Vector<Employee>();
@@ -25,6 +26,15 @@ import java.util.*;
 	
 	public Course findCourse(String id) {//find Course instance by id
 		for(Course b: courses) {
+			if(b.getId().equals(id)) {
+				return b;
+			}
+		}
+		return null;
+	}
+	public Student findStudent(String id) {//find Course instance by id
+		for(Student b: students) {
+			
 			if(b.getId().equals(id)) {
 				return b;
 			}
