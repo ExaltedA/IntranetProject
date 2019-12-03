@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 public class Core {
 	Databases data = Databases.getInstance();
-
+	static int maxAttempt = 0;
 	Core(){
 
 		data.students.add(new Student("Daniyar", "Moldakhan", "18BD112356", "d_moldakhan", "Kbtu111", "FIT", "CSS", 2, 3, 21, StudentType.BACHELOR));
@@ -16,13 +16,14 @@ public class Core {
 	public void Start() throws IOException {
 		System.out.println("Welcome to the KBTU Intranet!");
 		System.out.println("Please Enter your login and Password: ");
+		
 		processSignIn();
+		
 	}
-	public void processSignIn() throws IOException {
-
+	public void processSignIn() throws IOException { // Login and Password function
+		maxAttempt++;
 		// data.add();
 		boolean found = false;
-		int maxAttempt = 0;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.print("Login: ");
 		String login = br.readLine();
@@ -36,14 +37,15 @@ public class Core {
 				found= true;
 				break;
 			}    	
-			
+
 		}
-		if(maxAttempt<5) {
-		if(!found) {
-			System.out.println("Try again");
-			maxAttempt++;
-			processSignIn();
-		}}
+		if(maxAttempt<2) {
+			if(!found) {
+				System.out.println("Try again");
+				processSignIn();
+			}}
+			else System.out.println("Your entry data is invalid, please seek help from the Techguy or Admin, Telegram: @ExaltedA");
+		
 	}
 
 }
