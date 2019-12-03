@@ -1,0 +1,41 @@
+BS1010 Finance 3
+MARK1101 Marketing 4
+SSTH1101 Calculus I 3
+/*
+public void add() {
+	students.add(new Student("Daniyar", "Moldakhan", "18BD112356", "d_moldakhan", "Kbtu111", "FIT", "CSS", 2, 3, 21));
+	students.add(new Student("Assel", "Bekbayeva", "17BD120125", "a_bekbayeva", "Novembar2019", "FOGI", "FOGI" , 3, 3.5, 19));
+	students.add(new Student("Adil", "Seitzhanov", "19BD32208", "a_seitzhanov", "August2019", "SCE", "CTOS", 1, 2.8, 19));
+	students.add(new Student("Zhanna", "Kissenova", "18BD240613", "zh_kissenova", "Astana2017", "BS", "Finance" , 2, 3.2, 21));
+	
+	for(int i = 0; i < students.size(); i++) {
+		if((students.get(i).getFaculty().equals(Faculty.FIT)) && students.get(i).getYearOfStudy() == 2) {
+	students.get(i).addCourse(new Course("Differential Equations", "MATH 2104", 3));
+	students.get(i).addCourse(new Course("ADS", "CSCI 2105", 3));
+	students.get(i).addCourse(new Course("Russian/Kazakh", "LAN 1120", 3));
+	
+	if(students.get(i).getSpeciality().equals(FIT.CSS)) {
+	students.get(i).addCourse(new Course("OOP", "CSCI 2106", 3));
+	students.get(i).addCourse(new Course("Databases", "CSCI 2104", 3));
+	students.get(i).addCourse(new Course("Physics II", "PHYS 2102", 2));
+	students.get(i).addCourse(new Course("FEE I", "CSCI 1102", 3));
+	}
+	else if(students.get(i).getSpeciality().equals(FIT.IS)) {
+		students.get(i).addCourse(new Course("OOP", "CSCI 2106", 3));
+		students.get(i).addCourse(new Course("Databases", "CSCI 2104", 3));
+		students.get(i).addCourse(new Course("IT Infastructure", "CSIT 1202", 3));
+	}
+	else if(students.get(i).getSpeciality().equals(FIT.AC)){
+		students.get(i).addCourse(new Course("Physics II", "PHYS 2102", 2));
+		students.get(i).addCourse(new Course("FEE I", "CSCI 1102", 3));
+		students.get(i).addCourse(new Course("Calculus of complex variables", "MATH 2106", 3));
+	}
+		} 
+		else if(students.get(i).getFaculty().equals(Faculty.BS) && )
+	}
+	
+	employees.add(new Teacher("Pakizar", "Shamoi", "T0012", "p_shamoi", "Kbtu2009", 700000, "fix the board"));
+	employees.add(new Teacher("Askar", "Akshabayev", "T0123", "a_akshabayev", "December2019", 700000, " "));
+	}
+	
+	*/

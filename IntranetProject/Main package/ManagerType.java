@@ -1,5 +1,5 @@
 
 public enum ManagerType {
-OR,
-DEPARTMENT
+      OR,
+      Department
 }
