@@ -8,10 +8,10 @@ public class Core {
 	static int maxAttempt = 0;
 	Core(){
 
-		data.students.add(new Student("Daniyar", "Moldakhan", "18BD112356", "a_esenturov", "Aldik12", "FIT", "CSS", 2, 3, 21, StudentType.BACHELOR));
-		data.students.add(new Student("Assel", "Bekbayeva", "17BD120125", "a_bekbayeva", "Novembar2019", "FOGI", "FOGI" , 3, 3.5, 19,StudentType.BACHELOR));
-		data.students.add(new Student("Adil", "Seitzhanov", "19BD32208", "a_seitzhanov", "August2019", "SCE", "CTOS", 1, 2.8, 19,StudentType.BACHELOR));
-		data.students.add(new Student("Zhanna", "Kissenova", "18BD240613", "zh_kissenova", "Astana2017", "BS", "Finance" , 2, 3.2, 21,StudentType.BACHELOR));
+		data.students.add(new Student("Daniyar", "Moldakhan", "18BD112356", "a_esenturov", "Aldik12", Faculty.FIT, "CSS", 2, 21, StudentType.BACHELOR));
+		data.students.add(new Student("Assel", "Bekbayeva", "17BD120125", "a_bekbayeva", "Novembar2019", Faculty.FOGI, "FOGI" , 3, 19,StudentType.BACHELOR));
+		data.students.add(new Student("Adil", "Seitzhanov", "19BD32208", "a_seitzhanov", "August2019", Faculty.SCE, "CTOS", 1, 19,StudentType.BACHELOR));
+		data.students.add(new Student("Zhanna", "Kissenova", "18BD240613", "zh_kissenova", "Astana2017", Faculty.BS, "Finance" , 2, 21,StudentType.BACHELOR));
 
 	}
 	public void Start() throws IOException {
@@ -57,20 +57,16 @@ public class Core {
 			}}
 		else System.out.println("Your entry data is invalid, please seek help from the Techguy or Admin, Telegram: @ExaltedA");
 	}
-	public void showNews() throws IOException {  //Mozhet dokapatsya https://stackoverflow.com/questions/3886201/java-outputting-text-file-to-console
-		FileInputStream input = new FileInputStream("C:/Users/aldie/Documents/Intranet/IntranetProject/bin/news.txt");
-		FileChannel channel = input.getChannel();
-		byte[] buffer = new byte[256 * 1024];
-		ByteBuffer byteBuffer = ByteBuffer.wrap(buffer);
-
-		try {
-		    for (int length = 0; (length = channel.read(byteBuffer)) != -1;) {
-		        System.out.write(buffer, 0, length);
-		        byteBuffer.clear();
-		    }
-		} finally {
-		    input.close();
+	public void showNews() throws IOException { 
+		
+		BufferedReader in = new BufferedReader(new FileReader("news.txt"));
+		String line = in.readLine();
+		while(line != null)
+		{
+		  System.out.println(line);
+		  line = in.readLine();
 		}
+		in.close();
 		System.out.println("Press any key to proceed to menu..");
 	}
 	

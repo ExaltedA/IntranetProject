@@ -5,7 +5,11 @@ public class Mark {
     private double a2;
     private double f;
 	
-    public Mark() {}
+    public Mark() {
+    	a1 = 0;
+    	a2 = 0;
+    	f = 0;
+    }
 	
     public Mark(double a1, double a2, double f) {
 		super();
@@ -15,7 +19,7 @@ public class Mark {
     }
 	
 	
-	public double total(double a1, double a2, double f) {
+	public double getTotal() {
 		return a1 + a2 + f;
 	}
 	
@@ -27,7 +31,7 @@ public class Mark {
 		return a2;
 	}
 	
-	public double getFineal() {
+	public double getFinal() {
 		return f;
 	}
 	
@@ -42,37 +46,74 @@ public class Mark {
 	public void setF(double f) {
 		this.f = f;
 	}
+	public double getGpa() {
+		double a;
+		if(getTotal() <= 100 ) {
+			a=4.0;
+		}
+		else if(getTotal() < 95) {
+			a=3.67;
+		}
+		else if(getTotal() < 90) {
+			a=3.33;
+		}
+		else if(getTotal() < 85) {
+			a=3.0;
+		}
+		else if(getTotal() < 80) {
+			a=2.67;
+		}
+		else if(getTotal() < 75) {
+			a=2.33;
+		}
+		else if(getTotal() < 70) {
+			a=2.0;
+		}
+		else if(getTotal() < 65) {
+			a=1.67;
+		}
+		else if(getTotal() < 60) {
+			a=1.33;
+		}
+		else if(getTotal() < 55) {
+			a = 1.0;
+		}
+		else {
+			a=0;
+		}
+		return a;
+		}
 	
-	public static String let(int grade) {
+	public String getLet() {
 		String letter;
-		if(grade <= 100 ) {
+		if (getTotal() <= 100 ) {
 			letter = "A";
 		}
-		else if(grade < 95) {
+		else if(getTotal() < 95) {
 			letter = "A-";
 		}
-		else if(grade < 90) {
+		else if(getTotal() < 90) {
 			letter = "B+";
 		}
-		else if(grade < 85) {
+		else if(getTotal() < 85) {
 			letter = "B";
 		}
-		else if(grade < 80) {
+		else if(getTotal() < 80) {
 			letter = "B-";
 		}
-		else if(grade < 75) {
+		else if(getTotal() < 75) {
 			letter = "C+";
 		}
-		else if(grade < 70) {
+		else if(getTotal() < 70) {
 			letter = "C";
 		}
-		else if(grade < 65) {
+		else if(getTotal() < 65) {
 			letter = "C-";
 		}
-		else if(grade < 60) {
+		else if(getTotal() < 60) {
 			letter = "D+";
 		}
-		else if(grade < 55) {
+		else if(getTotal() < 55) {
 			letter = "D";
 		}
 		else {
@@ -80,5 +121,10 @@ public class Mark {
 		}
 		return letter;
 		}
+
+	@Override
+	public String toString() {
+		return " [Attestation 1 =" + a1 + ", Attestation 2 =" + a2 + ", Final =" + f + "] Total = " + getTotal() + " " + getLet()  ;
+	}
 	
 }

@@ -3,10 +3,10 @@ public class Employee extends User {
   
 	private int salary;
 	private String order;
+	public Employee() {}
 	public Employee(String name, String surname, String id, String login, 
-			String password, int salary, String order) {
+			String password, int salary) {
 		super(name, surname, id, login, password);
-		this.order = order;
 	}
 	
 	public int getSalary() {

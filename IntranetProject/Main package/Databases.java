@@ -23,7 +23,14 @@ import java.util.*;
 	static ObjectOutputStream oos;
 	static ObjectInputStream oin;
 	
-	
+	public Course findCourse(String id) {//find Course instance by id
+		for(Course b: courses) {
+			if(b.getId().equals(id)) {
+				return b;
+			}
+		}
+		return null;
+	}
 	public static void desCourses() throws IOException, ClassNotFoundException{
 		fis = new FileInputStream("courses");
 		oin = new ObjectInputStream(fis);

@@ -5,7 +5,8 @@ public class Course {
 	private Faculty faculty;
 	
 	HashSet<Course> Pre = new HashSet<Course>();
-
+	HashSet<CourseFiles> files = new HashSet<CourseFiles>();
+	
 	Course(){
 		this.name=name;
 		this.id=id;
@@ -16,6 +17,23 @@ public class Course {
 		this.name=name;
 		this.id=id;
 		this.credits=credits;
+	}
+	public boolean addFile(String title,String msg) {
+		return files.add(new CourseFiles(title,msg));
+		
+	}
+	public boolean removeFile(String title) {
+		for(CourseFiles a : files) {
+			if(a.getName().equals(title)) {
+				return files.remove(a);
+			}
+		}
+		return false;
+	}
+	public void showFiles() {
+		for(CourseFiles a : files) {
+			System.out.println(a.toString());
+		}
 	}
 	public boolean hasPrereq() { // returns True if vector has prerequisite, False otherwise
 		return !Pre.isEmpty();
