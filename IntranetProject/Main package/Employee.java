@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Employee extends User {
+public class Employee extends User implements Serializable {
 	Databases data = Databases.getInstance();
 	private int salary;
 	private String order;

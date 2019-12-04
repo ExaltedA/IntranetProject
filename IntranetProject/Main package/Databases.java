@@ -41,6 +41,18 @@ import java.util.*;
 		}
 		return null;
 	}
+	  public static void desEmployee() throws IOException, ClassNotFoundException{
+		    fis = new FileInputStream("employees");
+		    oin = new ObjectInputStream(fis);
+		    employees = (Vector<Employee>)oin.readObject();
+		  }
+		  
+		  public static void serEmployee()throws IOException{
+		    fos = new FileOutputStream("employees");
+		    oos = new ObjectOutputStream(fos);
+		    oos.writeObject(employees);
+		    oos.close();
+		  }
 	public static void desCourses() throws IOException, ClassNotFoundException{
 		fis = new FileInputStream("courses");
 		oin = new ObjectInputStream(fis);

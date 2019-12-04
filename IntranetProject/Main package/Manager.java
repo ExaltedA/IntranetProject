@@ -16,7 +16,11 @@ public class Manager extends Employee {
 			}
 		}
 	}
-	
+	public void newSemester() {
+		for(Student a: data.students) {
+			a.newSemester();
+		
+	}}
 	public boolean addCourse(Teacher a,String id) {// Add course for teacher
 		if(!data.findCourse(id).equals(null)) {
 			a.teacherCourses.add(data.findCourse(id));

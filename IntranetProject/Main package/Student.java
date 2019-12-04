@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 import java.util.Map.Entry;
-public class Student extends User implements Viewable{
+public class Student extends User implements Viewable,Serializable{
 
 	private int yearOfStudy;
 	public int numberCredits;
@@ -30,7 +31,7 @@ public class Student extends User implements Viewable{
 		this.yearOfStudy = yearOfStudy;
 		this.sType = sType;
 	}
-	
+
 	public void newSemester() { // Clears the maps of cur and moves the data to old
 		for (Entry<Course, Mark> entry : curCourses.entrySet()) {
 			if(oldCourses.containsKey(entry.getKey())) {
@@ -56,6 +57,8 @@ public class Student extends User implements Viewable{
 				course=b;
 			}
 		}
+		try {
+		if(!course.equals(null)) {
 		if(numberCredits>=course.getCredits()) {
 			if(faculty.equals(course.getFaculty())) {
 				curCourses.put(course, new Mark());
@@ -63,30 +66,42 @@ public class Student extends User implements Viewable{
 				return true;
 			}
 			else return false;
+		}}
+		 return false;
 		}
-		else return false;
+		catch(Exception e) {
+			System.out.println("Adding failed");
+		}
+		return false;
 	}
 	public boolean removeCourse(String id) {
 		Course course = null;
+		
 		for(Course b: data.courses) {
 			if(b.getId().equals(id)) {
 				course=b;
 			}
 		}
+		try {
+			if(!course.equals(null)) {
 		for (Entry<Course, Mark> entry : curCourses.entrySet()) {
 			if(entry.getKey().equals(course)) {
 				curCourses.remove(course);
 				return true;
-			}
+			}}
 
 		}
 		return false;
-
+		}
+		catch(Exception e) {
+			System.out.println("Dropping failed");
+		}
+		return false;
 	}
 	public void viewCourse() { //shows in console
 		for(Course a: data.courses) {
-		System.out.println(curCourses.toString());
-	}}
+			System.out.println(curCourses.toString());
+		}}
 
 	public int getYearOfStudy() {
 		return yearOfStudy;
@@ -122,7 +137,7 @@ public class Student extends User implements Viewable{
 
 	public String toString() {
 		return super.toString() + faculty + " " 
-	+ speciality + " " + " gpa " + calculateGPA() + " " + yearOfStudy;
+				+ speciality + " " + " gpa " + calculateGPA() + " " + yearOfStudy;
 	}
 
 	public boolean equals() {
@@ -133,4 +148,35 @@ public class Student extends User implements Viewable{
 		return super.hashCode();
 	}
 
+	@Override
+	public void viewMarks() {
+		for (Entry<Course, Mark> entry : curCourses.entrySet()) {
+			entry.getValue().toString();
+		}
+		for (Entry<Course, Mark> entry : oldCourses.entrySet()) {
+			entry.getValue().toString();
+		}
+	}
+	public void viewTransript() {
+		for (Entry<Course, Mark> entry : curCourses.entrySet()) {
+			entry.getValue().toString();
+			System.out.print(entry.getValue().getGpa() + entry.getValue().getLet());
+		}
+		for (Entry<Course, Mark> entry : oldCourses.entrySet()) {
+			entry.getValue().toString();
+			System.out.print(entry.getValue().getGpa() + entry.getValue().getLet());
+		}
+		System.out.println("Total Gpa: " + calculateGPA());
+	}
+	public void viewFiles() {
+		System.out.println("Student Files:");
+		for (Entry<Course, Mark> entry : curCourses.entrySet()) {
+			System.out.println(entry.getKey().getName() + ":");
+			for(CourseFiles a: entry.getKey().files) {
+				a.toString();
+			}
+		}
+	}
 }
+
+
